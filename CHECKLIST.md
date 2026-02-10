@@ -4,13 +4,13 @@ Feature requests and implementation checklist for this repo.
 
 ## Blog: tags
 
-- [ ] Add a `Tag` model (e.g., `name`, `slug`)
-- [ ] Add tag relationship on posts (likely `Post.tags = ManyToManyField(Tag, ...)`)
-- [ ] Generate and apply migrations
-- [ ] Register tags + post-tag relationship in Django admin
-- [ ] Update post list + post detail templates to display tags
-- [ ] Add tag pages (e.g., `/tags/<slug>/`) that show posts for a given tag
-- [ ] Add basic validation/constraints (unique slugs, reasonable lengths)
+- [x] Add a `Tag` model (e.g., `name`, `slug`)
+- [x] Add tag relationship on posts (likely `Post.tags = ManyToManyField(Tag, ...)`)
+- [x] Generate and apply migrations
+- [x] Register tags + post-tag relationship in Django admin
+- [x] Update post list + post detail templates to display tags
+- [x] Add tag pages (e.g., `/tags/<slug>/`) that show posts for a given tag
+- [x] Add basic validation/constraints (unique slugs, reasonable lengths)
 
 ## Blog: tag cloud
 

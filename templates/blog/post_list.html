@@ -4,7 +4,11 @@
 
 {% block content %}
   <section class="stack">
-    <h1>Posts</h1>
+    {% if current_tag %}
+      <h1>Posts tagged “{{ current_tag.name }}”</h1>
+    {% else %}
+      <h1>Posts</h1>
+    {% endif %}
 
     {% if posts %}
       <div class="stack">
@@ -16,6 +20,16 @@
             <div class="meta">
               <span>{{ post.created_at|date:"M j, Y" }}</span>
             </div>
+            {% with tags=post.tags.all %}
+              {% if tags %}
+                <div class="meta">
+                  <span class="muted">Tags:</span>
+                  {% for tag in tags %}
+                    <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
             <p class="excerpt">{{ post.content|truncatechars:220 }}</p>
           </article>
         {% endfor %}

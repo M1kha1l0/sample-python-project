@@ -10,6 +10,16 @@
       <span>{{ post.created_at|date:"M j, Y" }}</span>
     </div>
     <h1>{{ post.title }}</h1>
+    {% with tags=post.tags.all %}
+      {% if tags %}
+        <div class="meta">
+          <span class="muted">Tags:</span>
+          {% for tag in tags %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     <div class="prose">
       {{ post.content|linebreaks }}
     </div>
