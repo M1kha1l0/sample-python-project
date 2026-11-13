@@ -26,3 +26,9 @@ Feature requests and implementation checklist for this repo.
 - [ ] Update template to render “Previous/Next” (and optionally page numbers)
 - [ ] Preserve query params (if we add filtering later, like `?tag=`) when paging
 
+## Blog: comments and moderation
+
+- [ ] Add Comment model with post foreign key, author, text, created_at
+- [ ] Add comment submission form with CSRF protection and rate limiting
+- [ ] Add spam filtering, input validation, and XSS sanitization
+- [ ] Support comment deletion for blog administrators
