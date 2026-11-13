@@ -28,3 +28,5 @@ class Comment(models.Model):
 
     def __str__(self) -> str:
         return f"Comment by {self.author_name} on {self.post.title}"
+
+# Updated model with docstring
