@@ -19,3 +19,9 @@ class Post(models.Model):
     def get_absolute_url(self) -> str:
         return reverse("blog:post_detail", kwargs={"slug": self.slug})
 
+
+class PostRating(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="ratings")
+    score = models.IntegerField(default=5)
+    ip_hash = models.CharField(max_length=64, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
